@@ -7,7 +7,7 @@ class SackTest {
 
     @Test
     void addTest_addToIntegerSack() {
-        Sack<Integer> sack = new Sack<>();
+        ListInterface<Integer> sack = new Sack<>();
         sack.add(1);
         sack.add(2);
 
@@ -18,7 +18,7 @@ class SackTest {
 
     @Test
     void addTest_addToStringSack() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
 
@@ -29,7 +29,7 @@ class SackTest {
 
     @Test
     void addTest_addToZeroSizedStringSack() {
-        Sack<String> sack = new Sack<>(0);
+        ListInterface<String> sack = new Sack<>(0);
         sack.add("some string");
         sack.add("another string");
 
@@ -40,7 +40,7 @@ class SackTest {
 
     @Test
     void removeTest_removeFirstByIndex() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");
@@ -53,7 +53,7 @@ class SackTest {
 
     @Test
     void removeTest_removeLastByIndex() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");
@@ -66,7 +66,7 @@ class SackTest {
 
     @Test
     void removeTest_removeFromSackByIndex() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");
@@ -79,7 +79,7 @@ class SackTest {
 
     @Test
     void removeTest_removeLast() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");
@@ -92,7 +92,7 @@ class SackTest {
 
     @Test
     void sizeTest_notEmpty() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");
@@ -104,7 +104,7 @@ class SackTest {
 
     @Test
     void sizeTest_allRemoved() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");
@@ -119,7 +119,7 @@ class SackTest {
 
     @Test
     void sizeTest_empty() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
 
         int expected = 0;
         int actual = sack.size();
@@ -128,7 +128,7 @@ class SackTest {
 
     @Test
     void getTest_getByIndex() {
-        Sack<String> sack = new Sack<>();
+        ListInterface<String> sack = new Sack<>();
         sack.add("some string");
         sack.add("another string");
         sack.add("third string");

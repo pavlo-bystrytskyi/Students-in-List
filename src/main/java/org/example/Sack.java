@@ -1,6 +1,6 @@
 package org.example;
 
-public class Sack<T> {
+public class Sack<T> implements ListInterface<T> {
     private static final int DEFAULT_SIZE = 2;
 
     private int size;
