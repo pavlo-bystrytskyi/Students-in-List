@@ -10,8 +10,12 @@ class SackTest {
         ListInterface<Integer> sack = new Sack<>();
         sack.add(1);
         sack.add(2);
+        sack.add(3);
+        sack.add(4);
+        sack.add(5);
+        sack.add(6);
 
-        String expected = "Sack [1, 2]";
+        String expected = "Sack [1, 2, 3, 4, 5, 6]";
         String actual = sack.toString();
         Assertions.assertEquals(expected, actual);
     }
@@ -78,6 +82,32 @@ class SackTest {
     }
 
     @Test
+    void removeTest_removeNegativeIndex() {
+        ListInterface<String> sack = new Sack<>();
+        sack.add("some string");
+        sack.add("another string");
+        sack.add("third string");
+
+        Assertions.assertThrowsExactly(
+                IndexOutOfBoundsException.class,
+                () -> sack.remove(-1)
+        );
+    }
+
+    @Test
+    void removeTest_removeOutOfBoundIndex() {
+        ListInterface<String> sack = new Sack<>();
+        sack.add("some string");
+        sack.add("another string");
+        sack.add("third string");
+
+        Assertions.assertThrowsExactly(
+                IndexOutOfBoundsException.class,
+                () -> sack.remove(3)
+        );
+    }
+
+    @Test
     void removeTest_removeLast() {
         ListInterface<String> sack = new Sack<>();
         sack.add("some string");
@@ -135,6 +165,56 @@ class SackTest {
 
         String expected = "another string";
         String actual = sack.get(1);
+
         Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getTest_getLastByIndex() {
+        ListInterface<String> sack = new Sack<>();
+        sack.add("some string");
+        sack.add("another string");
+        sack.add("third string");
+
+        String expected = "third string";
+        String actual = sack.get(2);
+
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
+    void getTest_getNegativeIndex() {
+        ListInterface<String> sack = new Sack<>();
+        sack.add("some string");
+        sack.add("another string");
+        sack.add("third string");
+
+        Assertions.assertThrowsExactly(
+                IndexOutOfBoundsException.class,
+                () -> sack.get(-1)
+        );
+    }
+
+    @Test
+    void getTest_getOutOfBounds() {
+        ListInterface<String> sack = new Sack<>();
+        sack.add("some string");
+        sack.add("another string");
+        sack.add("third string");
+
+        Assertions.assertThrowsExactly(
+                IndexOutOfBoundsException.class,
+                () -> sack.get(3)
+        );
+    }
+
+    @Test
+    void getTest_getOutOfBoundsForEmpty() {
+        ListInterface<String> sack = new Sack<>();
+
+        Assertions.assertThrowsExactly(
+                IndexOutOfBoundsException.class,
+                () -> sack.get(0)
+        );
     }
 }

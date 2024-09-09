@@ -26,14 +26,14 @@ public class Sack<T> implements ListInterface<T> {
     }
 
     public T get(int index) {
-        if (index < 0 || index >= this.size) {
+        if (index < 0 || index > this.lastIndex) {
             throw new IndexOutOfBoundsException();
         }
         return this.storage[index];
     }
 
     public void remove(int index) {
-        if (index < 0 || index >= this.size) {
+        if (index < 0 || index > this.lastIndex) {
             throw new IndexOutOfBoundsException();
         }
         T[] newStorage = (T[]) new Object[this.size];
